@@ -2409,6 +2409,7 @@ Begin DDE Source Definition.
         N183AU\ON;1ABB:  5280.04
         N183AU\F01;1AB9:  5300.13
         N183AU\OFF;1AB8:  5280.05
+        N179P\D04;1AA9:  D6100
         K97P\D05;1A91:  5272
         K95P\D05;1A90:  5271
         K97P\D03;1A5B:  D1675
@@ -4430,7 +4431,6 @@ Begin DDE Source Definition.
         N194\F21;1AF8:  5251.12
         N248P\D04;1AB1:  5461
         N179P\D05;1AAA:  5471
-        N179P\D04;1AA9:  D4012
         N179P\D03;1AA8:  D4021
         N179P\D02;1AA7:  D4010
         N179P\D01;1AA6:  D4011
