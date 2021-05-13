@@ -4571,6 +4571,8 @@ Begin DDE Source Definition.
     Always Advise:		0
     SuiteLink:			1
     Begin DDE Points
+        S200\M;2643:  D1481
+        S191\M;2642:  D1480
         Sp99\F57;263C:  5114.12
         PP127\F16;2636:  5201.15
         PP127\F15;2635:  5201.14
