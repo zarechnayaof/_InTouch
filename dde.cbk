@@ -4571,6 +4571,11 @@ Begin DDE Source Definition.
     Always Advise:		0
     SuiteLink:			1
     Begin DDE Points
+        Z831\F03OFF;2648:  3808.02
+        Z831\F03ON;2647:  3808.01
+        Z831\F03;2646:  5258.02
+        Z831\ALARMOFF;2645:  3808.00
+        Z831\ALARM;2644:  5258.01
         S200\M;2643:  D1481
         S191\M;2642:  D1480
         Sp99\F57;263C:  5114.12
