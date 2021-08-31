@@ -1125,8 +1125,8 @@ Begin DDE Source Definition.
         OMRON_STATUS_PLC8;1107:  status
         N193\F13;0F88:  4554.12
         N193\F14;0F87:  4554.13
-        N193\F15;0F82:  4554.14
-        N193\F16;0F81:  4554.15
+        N193\F15;0F82:  4571.00
+        N193\F16;0F81:  4571.01
         N193\F03;0F80:  4554.07
         N193P\D04;0F7F:  D421
         N193P\D06;0F7E:  3845
@@ -2693,6 +2693,7 @@ Begin DDE Source Definition.
         VesySH\Summ1;260D:  D3781
         VesySH\TCPConnected;260A:  D3780.00
         c90\F10;2603:  5401.09
+        NU161U\F04;25E8:  D3332.03
         K195\F15;25D9:  4529.01
         IOServer\PLC4_Failover;251C:  $SYS$ForceFailover
         IOServer\PLC4_Time;250F:  $SYS$FailoverTime
@@ -2793,6 +2794,7 @@ Begin DDE Source Definition.
         Fider67\1;243A:  D10031
         K271V\IIst_otg2;2116:  D6498
         K271V\IIst_otg1;2115:  D6499
+        NU161U\F07;2114:  D3332.06
         C91O\F06;1F60:  5357.04
         C91O\F05;1F5F:  5357.03
         C91M\D01;1F5E:  D1619
@@ -2856,6 +2858,7 @@ Begin DDE Source Definition.
         K271V\IIst;1E9E:  D3661
         K271V\Ist;1E9C:  D3660
         K271P\D08;1E34:  D1612
+        NU161U\F05;1E0C:  D3332.04
         VK97\Y1;1E05:  D3714
         VK97\M1;1E03:  D3726
         VK97\Y2;1E02:  D3715
@@ -2873,6 +2876,8 @@ Begin DDE Source Definition.
         K97P\F14;1DB0:  5300.11
         Sp176T\R-2;1DA7:  D6093
         Sp176T\R-1;1DA6:  D6083
+        NU161U\R;1DA1:  D3033
+        NU161U\nI;1DA0:  D3034
         G188T\R-2;1D9F:  D6193
         G188T\R-1;1D9E:  D6183
         S191T\R-2;1D9D:  D6213
@@ -2941,6 +2946,7 @@ Begin DDE Source Definition.
         Vesy2\Iput;1C15:  D3672
         Vesy2\NaSkalde;1C14:  D3650
         Vesy2\NaSkalde_;1C13:  D3651
+        NU161U\F06;1C0F:  D3332.05
         GK\OLS_PEP;1BA8:  5352.04
         TIME_SINH_O;1B81:  5280.15
         N183AU\D01;1ABC:  D6639
@@ -2998,6 +3004,7 @@ Begin DDE Source Definition.
         Vesy1\K72Year1;19FE:  D3614
         Vesy1\K71Year2;19FD:  D3605
         Vesy1\K71Year1;19FC:  D3604
+        NU161U\F01;19F2:  D3332.00
         Vesy1\K331II;19EF:  D3685
         Vesy1\K271II;19EE:  D3675
         Vesy1\K72II;19ED:  D3665
@@ -3120,6 +3127,8 @@ Begin DDE Source Definition.
         N129U\F02;16BE:  D3357.01
         N129U\F01;16BC:  D3357.00
         C90\F07;16BA:  5401.06
+        NU161U\U;15E3:  D3038
+        NU161U\sI;15E1:  D3039
         NU161P\F08;15CE:  5360.00
         Sp176T\TI-2;14B3:  D6096
         Sp176T\TI-1;14B2:  D6086
@@ -3131,6 +3140,9 @@ Begin DDE Source Definition.
         G188T\TI-1;14A8:  D6186
         C187T\TI;14A7:  D6176
         C186T\TI;14A5:  D6166
+        NU161U\pI;14A3:  D3035
+        NU161U\Tim;14A2:  D3036
+        NU161U\TImP;14A1:  D3037
         C175T\TI;149A:  D6076
         C174T\TI;1497:  D6066
         C173T\TI;1495:  D6056
@@ -3753,6 +3765,9 @@ Begin DDE Source Definition.
         N183A\F01;115D:  D1640.00
         N183A\F02;113D:  D1640.03
         N183A\F03;113C:  D1641.00
+        NU161U\Ib;10C0:  D3031
+        NU161U\Ic;10BF:  D3032
+        NU161U\Ia;10BE:  D3030
         Vesy1\K51;0E36:  D3642
         Vesy1\K72;0E35:  D3612
         Vesy1\K71;0E34:  D3602
@@ -3795,6 +3810,8 @@ Begin DDE Source Definition.
         Fider31\NU;0DEE:  D2067
         Fider31\NI;0DED:  D2066
         G87T\TI-2;0DE4:  D2276
+        NU161U\F03;0DCB:  D3332.02
+        NU161U\F02;0DCA:  D3332.01
         S200\I2;0CB0:  D6240
         S200\I1;0CAF:  D6230
         S191\I2;0CAE:  D6210
@@ -3881,6 +3898,7 @@ Begin DDE Source Definition.
         P53\Hz;0810:  5262
         P53\HzIn;080F:  5268
         G75\I2;07FA:  D2440
+        NU161U\F14;07D7:  D3332.13
         VesyO\Iput;07C5:  D3730
         C90\F22;07B7:  5402.05
         C90\F21;07B6:  5402.04
