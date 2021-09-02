@@ -1,25 +1,60 @@
 # Внесенные изменения
 
 
-1. New Tags
+1. New Quick function >
+Chartlength2Clock(length: integer) {
+	DIM HoursStr AS MESSAGE;
+	DIM MinutesStr AS MESSAGE;
 
+	DIM H AS INTEGER;
+	DIM M AS INTEGER;
 
-2 Action script 
-IF $AccessLevel > 1000 THEN
-    IF (Z832\ZAD133_ISOPEN) THEN
-        Z832\ZAD133_OFF=1;
-    ELSE
-        Z832\ZAD133_ON=1;
-    ENDIF;
-ENDIF;
+	H = Int( length/3600 );
+	M = Int( (length - (Int(length/3600))*3600)/60 );
 
-3. Fill color -> Discrete
-Z832\ZAD133_ISOPEN
+	IF (H >= 10) AND (H < 15) THEN
+	    HoursStr = "часов";
+	ELSE
+	    IF (H MOD 10) == 1  THEN
+	        HoursStr = "час";
+	    ELSE
+	        IF ((H MOD 10) == 2) OR ((H MOD 10) == 3) OR ((H MOD 10) == 4)   THEN
+	            HoursStr = "часа";
+	        ELSE
+	            HoursStr = "часов";
+	        ENDIF;
+	    ENDIF;
+	ENDIF;
 
-4. Added New Condition scripts
-while (Z832\ZAD133_ON) {
-	Z832\ZAD133_ON = 0;
+	IF (M >= 10) AND (M < 15) THEN
+	    MinutesStr = "минут";
+	ELSE
+	    IF (M MOD 10) == 1  THEN
+	        MinutesStr = "минута";
+	    ELSE
+	        IF ((M MOD 10) == 2) OR ((M MOD 10) == 3) OR ((M MOD 10) == 4)   THEN
+	            MinutesStr = "минуты";
+	        ELSE
+	            MinutesStr = "минут";
+	        ENDIF;
+	    ENDIF;
+	ENDIF;
+
+	RETURN Text(H, "# "+ HoursStr) + Text( M,  " # " + MinutesStr + ":");
 }
-while (Z832\ZAD133_OFF) {
-	Z832\ZAD133_OFF = 0;
-}
+
+
+
+2. Window "Настройка: Плотномер" > 
+На линии ползунка изменил условие показа,
+Вставил, скопировав, секцию среднего значения по времени из окна Тренд: Весы
+Текст > Value Display > String
+	"Средняя плотность за " + CALL Chartlength2Clock(HTrend_K.ChartLength)
+Тект > Visibility > 
+	if (Ind_K\RBHisView==2) On
+Рамка > Visibility > 
+	if (Ind_K\RBHisView==2) On
+Значение > Visibility > 
+	if (Ind_K\RBHisView==2) On
+Значение > Value Display > Analog >
+	HTGetValue(HTrend_K.Name, HTrend_K.UpdateCount, 1, "PenAverageValue")
