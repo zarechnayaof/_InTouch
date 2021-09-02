@@ -2,114 +2,24 @@
 
 
 1. New Tags
-:MemoryReal,	Group,		Comment,	Logged,	EventLogged,	EventLoggingPriority,	RetentiveValue,	RetentiveAlarmParameters,	AlarmValueDeadband,	AlarmDevDeadband,	EngUnits,	InitialValue,	MinValue,	MaxValue,	Deadband,	LogDeadband,	LoLoAlarmState,	LoLoAlarmValue,	LoLoAlarmPri,	LoAlarmState,	LoAlarmValue,	LoAlarmPri,	HiAlarmState,	HiAlarmValue,	HiAlarmPri,	HiHiAlarmState,	HiHiAlarmValue,	HiHiAlarmPri,	MinorDevAlarmState,	MinorDevAlarmValue,	MinorDevAlarmPri,	MajorDevAlarmState,	MajorDevAlarmValue,	MajorDevAlarmPri,	DevTarget,	ROCAlarmState,	ROCAlarmValue,	ROCAlarmPri,	ROCTimeBase,	AlarmComment,	AlarmAckModel,	LoLoAlarmDisable,	LoAlarmDisable,	HiAlarmDisable,	HiHiAlarmDisable,	MinDevAlarmDisable,	MajDevAlarmDisable,	RocAlarmDisable,	LoLoAlarmInhibitor,	LoAlarmInhibitor,	HiAlarmInhibitor,	HiHiAlarmInhibitor,	MinDevAlarmInhibitor,	MajDevAlarmInhibitor,	RocAlarmInhibitor
-CoalExit,		$System,	Выход угля,		Yes,	No,			0,							No,						No,						0,				0,					0,			0,				100,		0,			0,			Off,				0,				1,			Off,			0,					1,			Off,		0,				1,				Off,			0,				1,			Off,			0,						1,					Off,					0,				1,					0,				Off,			0,				1,				Min,			0,				0,				0,				0,					0,			0,					0,					0
-CoalExitPerc,	$System,	Выход угля %,	Yes,	No,			0,							No,						No,						0,				0,					0,			0,				100,		0,			0,			Off,				0,				1,			Off,			0,					1,			Off,		0,				1,				Off,			0,				1,			Off,			0,						1,					Off,					0,				1,					0,				Off,			0,				1,				Min,			0,				0,				0,				0,					0,			0,					0,					0
 
 
-
-
-
-2. New QuickFunc
-	
-TrimMin(VAL: Real; LIMIT: Real) {
-	DIM Result AS REAL;
-	IF VAL < LIMIT THEN
-	    Result = LIMIT;
-	ELSE
-	    Result = VAL;
-	ENDIF;
-	RETURN Result;
-}
-TrimMax(VAL: Real; LIMIT: Real) {
-	DIM Result AS REAL;
-	IF VAL > LIMIT THEN
-	    Result = LIMIT;
-	ELSE
-	    Result = VAL;
-	ENDIF;
-	RETURN Result;
-}
-CalcCoalExit(VAL71: Real; VAL72: Real; VAL271: Real) {
-	DIM Incoming AS REAL;
-	DIM Outgoing AS REAL;
-	DIM Ratio AS REAL;
-	DIM Delta AS REAL;
-	DIM koef AS REAL;
-
-	Incoming = CALL TrimMin(VAL71, 0.01) + CALL TrimMin(VAL72, 0);
-	Outgoing = CALL TrimMin(VAL271, 0) ;
-	Ratio = Outgoing / Incoming;
-	Delta = Ratio - (CoalExit/10) ;
-	koef = 0.1;
-	IF Outgoing < 1 THEN
-	    CoalExit = 0;
-	ELSE
-	    CoalExit = CALL TrimMax( (CoalExit/10) + ( Delta * koef ), 1 ) * 10;
-	ENDIF;
-
-	RETURN CoalExit * 10;
-}
-
-
-
-
-3. Асновной экран 1920 -> Window script
-# Удалены закомментированные строки
-
-- {Zola\K51S=Zola\K51SC+Zola\K51SD/10;
-Zola\K271S=Zola\K271SC+Zola\K271SD/10;}
-
-- {
-HTUpdateToCurrentTime(HTrend_V3.Name);
-Vesy71 = HTGetValue(HTrend_V3.Name,HTrend_V3.UpdateCount,1,"PenAverageValue");
-Vesy72 = HTGetValue(HTrend_V3.Name,HTrend_V3.UpdateCount,2,"PenAverageValue");
-Vesy271 = HTGetValue(HTrend_V3.Name,HTrend_V3.UpdateCount,3,"PenAverageValue");
-}
-
--{IF ($Minute==0)AND( $Second ==0) THEN 
-Vesy\K71_t2 = Vesy\K71_t1;
-Vesy\K71_t1 = StringToReal(StringChar((Vesy\SU_K71_1 SHR 8 ) & 0xff) + StringChar(Vesy\SU_K71_1 & 0xff) + StringChar((Vesy\SU_K71_2 SHR 8 ) & 0xff) + StringChar(Vesy\SU_K71_2 & 0xff) + StringChar((Vesy\SU_K71_3 SHR 8 ) & 0xff) + StringChar(Vesy\SU_K71_3 & 0xff));
-Vesy\K72_t2 = Vesy\K72_t1;
-Vesy\K72_t1 = StringToReal(StringChar((Vesy\SU_K72_1 SHR 8 ) & 0xff) + StringChar(Vesy\SU_K72_1 & 0xff) + StringChar((Vesy\SU_K72_2 SHR 8 ) & 0xff) + StringChar(Vesy\SU_K72_2 & 0xff) + StringChar((Vesy\SU_K72_3 SHR 8 ) & 0xff) + StringChar(Vesy\SU_K72_3 & 0xff));
-Vesy\K271_t2 = Vesy\K271_t1;
-Vesy\K271_t1 = StringToReal(StringChar((Vesy\SU_K271_1 SHR 8 ) & 0xff) + StringChar(Vesy\SU_K271_1 & 0xff) + StringChar((Vesy\SU_K271_2 SHR 8 ) & 0xff) + StringChar(Vesy\SU_K271_2 & 0xff) + StringChar((Vesy\SU_K271_3 SHR 8 ) & 0xff) + StringChar(Vesy\SU_K271_3 & 0xff));
+2 Action script 
+IF $AccessLevel > 1000 THEN
+    IF (Z832\ZAD133_ISOPEN) THEN
+        Z832\ZAD133_OFF=1;
+    ELSE
+        Z832\ZAD133_ON=1;
+    ENDIF;
 ENDIF;
+
+3. Fill color -> Discrete
+Z832\ZAD133_ISOPEN
+
+4. Added New Condition scripts
+while (Z832\ZAD133_ON) {
+	Z832\ZAD133_ON = 0;
 }
-
-- {
-IF (?i:$Hour==6)AND(?i:$Minute==0)AND( ?i:$Second ==0) THEN 
-?r:zola51_mid = ?i:zola51_mid1;
-?i:zola51_midle = 0;
-?i:zola51_count = 0;
-?r:zola271_mid = ?i:zola271_mid1;
-?i:zola271_midle = 0;
-?i:zola271_count = 0;
-ENDIF;
-IF (?i:$Minute==0)AND( ?i:$Second ==0) THEN 
-?i:zola51_mid_hour = ?i:zola51_mid1_hour;
-?i:zola51_midle_hour = 0;
-?i:zola51_count_hour = 0;
-?i:zola271_mid_hour = ?i:zola271_mid1_hour;
-?i:zola271_midle_hour = 0;
-?i:zola271_count_hour = 0;
-ENDIF;
+while (Z832\ZAD133_OFF) {
+	Z832\ZAD133_OFF = 0;
 }
-
-- Vyhod_Ind = Vesy\K271 / (Vesy\K71 + Vesy\K72);
-+ DIM tmpCoalExit AS REAL;
-+ tmpCoalExit = CALL TrimMin( Vesy\K271, 0.0) / ( CALL TrimMin(Vesy\K71, 0.0) + CALL TrimMin(Vesy\K72, 0.01) );
-+ Vyhod_Ind = CALL TrimMax( tmpCoalExit, 1);
-
-
-- {Vyhod\M02 = 60;}
-- {IF (Vyhod\M02 < Vyhod\M01) AND (Vyhod_Ind<>0) THEN
-    Vyhod\M02 = Vyhod\M02 + 1;
-ENDIF;}
-
-- {IF K271V\IIst_ost < 0 THEN
-K271V\IIst_ost = 0;
-ENDIF;}
-
-+ CoalExitPerc = CALL CalcCoalExit( Vesy\K71, Vesy\K72, Vesy\K271 );
-

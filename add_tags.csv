@@ -1,4 +1,5 @@
-:mode=REPLACE;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
-:MemoryReal;Group;Comment;Logged;EventLogged;EventLoggingPriority;RetentiveValue;RetentiveAlarmParameters;AlarmValueDeadband;AlarmDevDeadband;EngUnits;InitialValue;MinValue;MaxValue;Deadband;LogDeadband;LoLoAlarmState;LoLoAlarmValue;LoLoAlarmPri;LoAlarmState;LoAlarmValue;LoAlarmPri;HiAlarmState;HiAlarmValue;HiAlarmPri;HiHiAlarmState;HiHiAlarmValue;HiHiAlarmPri;MinorDevAlarmState;MinorDevAlarmValue;MinorDevAlarmPri;MajorDevAlarmState;MajorDevAlarmValue;MajorDevAlarmPri;DevTarget;ROCAlarmState;ROCAlarmValue;ROCAlarmPri;ROCTimeBase;AlarmComment;AlarmAckModel;LoLoAlarmDisable;LoAlarmDisable;HiAlarmDisable;HiHiAlarmDisable;MinDevAlarmDisable;MajDevAlarmDisable;RocAlarmDisable;LoLoAlarmInhibitor;LoAlarmInhibitor;HiAlarmInhibitor;HiHiAlarmInhibitor;MinDevAlarmInhibitor;MajDevAlarmInhibitor;RocAlarmInhibitor
-CoalExit;$System;Выход угля (Считается по-новому);Yes;No;0;No;No;0;0;;0;0;100;0;0;Off;0;1;Off;0;1;Off;0;1;Off;0;1;Off;0;1;Off;0;1;0;Off;0;1;Min;;0;0;0;0;0;0;0;0;;;;;;;
-CoalExitPerc;$System;Выход угля %;Yes;No;0;No;No;0;0;;0;0;100;0;0;Off;0;1;Off;0;1;Off;0;1;Off;0;1;Off;0;1;Off;0;1;0;Off;0;1;Min;;0;0;0;0;0;0;0;0;;;;;;;
+:mode=REPLACE;;;;;;;;;;;;;;;;;;;;
+:IODisc;Group;Comment;Logged;EventLogged;EventLoggingPriority;RetentiveValue;InitialDisc;OffMsg;OnMsg;AlarmState;AlarmPri;DConversion;AccessName;ItemUseTagname;ItemName;ReadOnly;AlarmComment;AlarmAckModel;DSCAlarmDisable;DSCAlarmInhibitor
+Z832\ZAD133_OFF;$System;133 Закрыть задвижку;No;Yes;999;No;Off;OFF;ON;None;1;Direct;plc9;No;3914.01;No;Z 832 :  Закрыть задвижку 133;0;0;
+Z832\ZAD133_ISOPEN;$System;133 Задвижка открыта;No;Yes;999;No;Off;OFF;ON;None;1;Direct;plc9;No;3857.13;Yes;Z 832 : Задвижка 133 открыта;0;0;
+Z832\ZAD133_ON;$System;133 Открыть задвижку;No;Yes;999;No;Off;OFF;ON;None;1;Direct;plc9;No;3914.00;No;Z 832 :  Открыть задвижку 133;0;0;
