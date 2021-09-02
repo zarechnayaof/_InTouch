@@ -3945,6 +3945,7 @@ Begin DDE Source Definition.
         C90\OFF;05F6:  5403.09
         C90\ON;05F5:  5403.08
         P54\HzIn;05F0:  5269
+        K301\I;05DC:  D2380
         C187B\I;052F:  D6170
         C186B\I;052A:  D6160
         C175B\I;0525:  D6070
@@ -4539,7 +4540,6 @@ Begin DDE Source Definition.
         K81\I;077C:  D4062
         K331\I;067C:  D4052
         K271\I;0669:  D4002
-        K301\I;05DC:  D4072
         NP179\I;039D:  D4012
         OMRON_STATUS_PLC5;0217:  status
     End DDE Points
